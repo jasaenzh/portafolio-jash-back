@@ -1,4 +1,5 @@
-import { Column, Entity } from "typeorm";
+import { User } from "src/users/entities/user.entities";
+import { Column, Entity, OneToMany } from "typeorm";
 
 @Entity()
 export class ProfileImages {
@@ -8,7 +9,14 @@ export class ProfileImages {
   })
   id: number
 
-  @Column('text')
+  @Column()
+  name_src: string;
+
+  @Column()
   url: string
+
+  // Relacion la tabla Users
+  @OneToMany(() => User, (user) => user.name_src)
+  user: []
 
 }

@@ -1,7 +1,12 @@
-import { IsNotEmpty, IsUrl } from "class-validator";
+import { IsString, MinLength } from "class-validator";
 
 export class CreateProfilesImagesDto {
-  @IsUrl()
-  @IsNotEmpty()
+
+  @IsString()
+  name_src: string
+
+  @IsString()
+  @MinLength(3)
   url: string
+
 }

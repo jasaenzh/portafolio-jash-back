@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsOptional, IsString, MinLength } from "class-validator";
+import { IsNotEmpty, IsString, MinLength } from "class-validator";
 
 export class CreateUserDto {
 
@@ -18,6 +18,5 @@ export class CreateUserDto {
   birthdate: string;
 
   @IsString()
-  @IsOptional()
-  profileImages?: string;
+  name_src: string;
 }
