@@ -1,4 +1,4 @@
-import { User } from "src/users/entities/user.entities";
+import { Skills } from "src/skills/entities/skill";
 import { Column, Entity, OneToMany } from "typeorm";
 
 @Entity()
@@ -16,7 +16,7 @@ export class ProfileImages {
   url: string
 
   // Relacion la tabla Users
-  @OneToMany(() => User, (user) => user.name_src)
+  @OneToMany(() => Skills, (skill) => skill.name_src)
   user: []
 
 }

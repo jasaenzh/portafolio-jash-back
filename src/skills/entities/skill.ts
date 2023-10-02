@@ -2,7 +2,7 @@ import { ProfileImages } from 'src/profileImages/entities/profilesImages.entitie
 import { Column, DeleteDateColumn, Entity, ManyToOne } from 'typeorm';
 
 @Entity()
-export class User {
+export class Skills {
 
   @Column({
     primary: true,
@@ -12,15 +12,6 @@ export class User {
 
   @Column()
   name: string;
-
-  @Column()
-  lastname: string;
-
-  @Column()
-  birthdate: Date;
-
-  // @Column({ nullable: true })
-  // profileImages?: string;
 
   @DeleteDateColumn()
   deletedAt: Date;
