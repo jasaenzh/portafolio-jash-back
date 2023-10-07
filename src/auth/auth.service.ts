@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
+import { RegisterDto } from './dto/register.dto';
 
 @Injectable()
 export class AuthService {
@@ -8,12 +9,19 @@ export class AuthService {
     private readonly userService: UsersService
   ) { }
 
-  login() {
+  async login() {
     return 'login'
   }
 
-  register() {
-    return 'register'
+  async register(registerDto: RegisterDto) {
+
+    const findUser = await this.userService.findOneByEmail(registerDto.email)
+    if (findUser) {
+      throw new BadRequestException('Email ya existe!')
+    }
+    const newUser = await this.userService.create(registerDto)
+
+    return newUser
   }
 
 }
