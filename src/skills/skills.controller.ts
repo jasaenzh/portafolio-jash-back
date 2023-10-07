@@ -1,10 +1,10 @@
 import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, Patch, Post } from "@nestjs/common";
-import { SkillService } from "./users.service";
+import { SkillService } from "./skills.service";
 import { CreateSkillDto } from "./dtos/create-skill.dto";
 import { Skills } from "./entities/skill";
 import { UpdateSkillDto } from "./dtos/update-user.dto";
 
-@Controller('users')
+@Controller('skills')
 export class SkillController {
   constructor(private skillService: SkillService) { }
 

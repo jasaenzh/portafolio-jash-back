@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from './skills/users.module';
+import { SkillsModule } from './skills/skills.module';
 import { ProfilesImagesModule } from './profileImages/profileImages.module';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -16,8 +18,10 @@ import { ProfilesImagesModule } from './profileImages/profileImages.module';
       autoLoadEntities: true,
       synchronize: true
     }),
+    SkillsModule,
+    ProfilesImagesModule,
     UsersModule,
-    ProfilesImagesModule
+    AuthModule,
   ],
   controllers: [],
   providers: [],
